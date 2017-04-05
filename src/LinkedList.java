@@ -77,11 +77,37 @@ public class LinkedList {
         Node current = list;
         if (list == null) {
             list = newNode;
+        } else if (newNode.data.getGPA() < current.data.getGPA()) {
+            list = newNode;
+            newNode.next = current;
         } else {
-            while (current.next != null && newNode.data.getGPA() < current.data.getGPA()) {
+            while (current.next != null && newNode.data.getGPA() > current.next.data.getGPA()) {
                 current = current.next;
             }
+            if (current.next == null) {
+                current.next = newNode;
+            } else {
+                newNode.next = current.next;
+                current.next = newNode;
+            }
         }
+
+             
+
+        /*} else {
+            while (current.next != null && newNode.data.getGPA() > current.next.data.getGPA()) {
+                current = current.next;
+            }
+            if (current.next == null && newNode.data.getGPA() >= current.data.getGPA()) {
+                current.next = newNode;
+            } else if (current.next == null && newNode.data.getGPA() < current.data.getGPA()) {
+                list = newNode;
+                newNode.next = current;
+            } else {
+                newNode.next = current.next;
+                current.next = newNode;
+            }*/
+        
     }
 
     public Node getList() {
