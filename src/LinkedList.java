@@ -70,9 +70,6 @@ public class LinkedList {
     }
 
     public void addInOrder (Student s) {
-        // inserts a new node with student s at the right place in the linked list so
-        // that linked list nodes have students ordered by gpa, both before and after
-        // inserting the current node.
         Node newNode = new Node(s);
         Node current = list;
         if (list == null) {
@@ -81,7 +78,8 @@ public class LinkedList {
             list = newNode;
             newNode.next = current;
         } else {
-            while (current.next != null && newNode.data.getGPA() > current.next.data.getGPA()) {
+            while (current.next != null && newNode.data.compareTo(current.next.data) > 0) {
+            //while (current.next != null && newNode.data.getGPA() > current.next.data.getGPA()) {
                 current = current.next;
             }
             if (current.next == null) {
@@ -91,22 +89,6 @@ public class LinkedList {
                 current.next = newNode;
             }
         }
-
-             
-
-        /*} else {
-            while (current.next != null && newNode.data.getGPA() > current.next.data.getGPA()) {
-                current = current.next;
-            }
-            if (current.next == null && newNode.data.getGPA() >= current.data.getGPA()) {
-                current.next = newNode;
-            } else if (current.next == null && newNode.data.getGPA() < current.data.getGPA()) {
-                list = newNode;
-                newNode.next = current;
-            } else {
-                newNode.next = current.next;
-                current.next = newNode;
-            }*/
         
     }
 

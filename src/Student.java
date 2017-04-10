@@ -14,11 +14,11 @@ public class Student {
 
     public int compareTo(Student s) {
         if (gpa == s.gpa) {
-            return 0;
+            return 0; // this student gpa = s gpa
         } else if (gpa < s.gpa) {
-            return -1;
+            return -1; // this student gpa < s gpa
         } else {
-            return 1;
+            return 1; // this student gpa > s gpa
         }
     }
 

@@ -20,21 +20,25 @@ public class TestList {
         list1.addFront(s4);
         list1.addFront(s5);
         list1.printLinkedList();
-        System.out.println("Best: " + list1.bestStudent().toString());
-        System.out.println("Worst: " + list1.worstStudentRec(list1.getList()).toString());
-        System.out.println("Count: " + list1.countNodesRec(list1.getList()));
+        System.out.println("Best: "
+                + list1.bestStudent().toString());
+        System.out.println("Worst: "
+                + list1.worstStudentRec(list1.getList()).toString());
+        System.out.println("Count: "
+                + list1.countNodesRec(list1.getList()));
 
         list2.addTail(s1);
         list2.addTail(s2);
         list2.addTail(s3);
         list2.addTail(s4);
         list2.addTail(s5);
-        System.out.println("Best: " + list2.bestStudent().toString());
-        System.out.println("Worst: " + list2.worstStudentRec(list2.getList()).toString());
-        System.out.println("Count: " + list2.countNodesRec(list2.getList()));
+        System.out.println("Best: "
+                + list2.bestStudent().toString());
+        System.out.println("Worst: "
+                + list2.worstStudentRec(list2.getList()).toString());
+        System.out.println("Count: "
+                + list2.countNodesRec(list2.getList()));
 
-
-        
         list3.addInOrder(s1);
         list3.addInOrder(s2);
         list3.addInOrder(s3);
