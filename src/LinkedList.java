@@ -61,10 +61,10 @@ public class LinkedList {
             return list.data;
         } else {
             Student s = worstStudentRec(list.next);
-            if (s.getGPA() < list.next.data.getGPA()) {
+            if (s.getGPA() < list.data.getGPA()) {
                 return s;
             } else {
-                return list.next.data;
+                return list.data;
             }
         }
     }
