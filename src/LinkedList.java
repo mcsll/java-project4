@@ -1,21 +1,28 @@
 /**
- * Created by Matt on 3/30/2017.
+ * CS152 Section 01, Project #4
+ * LinkedList class created linked list of students
+ * @author (Matthew Sullivan)
+ * @version (April 10, 2017)
  */
-public class LinkedList {
 
+public class LinkedList
+{
     private Node list;
 
-    public LinkedList () {
+    public LinkedList ()
+    {
         list = null;
     }
 
-    public void addFront (Student s) {
+    public void addFront (Student s)
+    {
         Node newNode = new Node (s);
         newNode.next = list;
         list = newNode;
     }
 
-    public void addTail (Student s) {
+    public void addTail (Student s)
+    {
         Node newNode = new Node (s);
         Node current = list;
         if (list == null) {
@@ -28,11 +35,12 @@ public class LinkedList {
         }
     }
 
-    public Student bestStudent () {
+    public Student bestStudent ()
+    {
         Node current = list.next;
         Student bestStudent = list.data;
         while (current != null) {
-            if (current.data.getGPA() > bestStudent.getGPA()) {
+            if (current.data.compareTo(bestStudent) > 0) {
                 bestStudent = current.data;
             }
             current = current.next;
@@ -40,7 +48,8 @@ public class LinkedList {
         return bestStudent;
     }
 
-    public void printLinkedList () {
+    public void printLinkedList ()
+    {
         Node current = list;
         while (current != null) {
             System.out.println(current.data.toString());
@@ -56,12 +65,13 @@ public class LinkedList {
         }
     }
 
-    public Student worstStudentRec (Node list) {
+    public Student worstStudentRec (Node list)
+    {
         if (list.next == null) {
             return list.data;
         } else {
             Student s = worstStudentRec(list.next);
-            if (s.getGPA() < list.data.getGPA()) {
+            if (s.compareTo(list.data) < 0) {
                 return s;
             } else {
                 return list.data;
@@ -69,17 +79,18 @@ public class LinkedList {
         }
     }
 
-    public void addInOrder (Student s) {
+    public void addInOrder (Student s)
+    {
         Node newNode = new Node(s);
         Node current = list;
         if (list == null) {
             list = newNode;
-        } else if (newNode.data.getGPA() < current.data.getGPA()) {
+        } else if (newNode.data.compareTo(current.data) < 0) {
             list = newNode;
             newNode.next = current;
         } else {
-            while (current.next != null && newNode.data.compareTo(current.next.data) > 0) {
-            //while (current.next != null && newNode.data.getGPA() > current.next.data.getGPA()) {
+            while (current.next != null
+                    && newNode.data.compareTo(current.next.data) > 0) {
                 current = current.next;
             }
             if (current.next == null) {
@@ -92,15 +103,18 @@ public class LinkedList {
         
     }
 
-    public Node getList() {
+    public Node getList()
+    {
         return list;
     }
 
-    private class Node {
+    private class Node
+    {
         public Student data;
         public Node next;
 
-        public Node (Student s) {
+        public Node (Student s)
+        {
             data = s;
             next = null;
         }
